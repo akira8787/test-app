@@ -1,5 +1,11 @@
 <h1>Hello 💎</h1>
+<% flash.each do |key, value| %>
+  <div class="flash <%= key %>">
+    <%= value %>
+  </div>
+<% end %>
 <div class="button-container">
+  <%= button_to " 全件削除", destroy_all_posts_path, method: :delete,  form: { data: { turbo_confirm: "削除しますか？"}  }, class: "link-delete-button" %>
   <%= link_to "新しい投稿", new_post_path, class: "link-button" %>
 </div>
 <ul>

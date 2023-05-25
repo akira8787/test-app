@@ -1,7 +1,20 @@
-Rails.application.routes.draw do
-  resources :posts, only:[:index, :new, :create, :edit, :update, :destroy]
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+# Rails.application.routes.draw do
+#   resources :posts, only:[:index, :new, :create, :edit, :update, :destroy]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+#     collection do
+#           delete 'destroy_all', action: :destroy_all
+#         end
+
+#   resources :posts, only:[:index, :new, :create, :edit, :update, :destroy]
+#        delete 'destroy_all', action: :destroy_all 
+    
+#   end
+# end
+
+Rails.application.routes.draw do
+  resources :posts, only: [:index, :new, :create, :edit, :update, :destroy] do
+    collection do
+      delete 'destroy_all', action: :destroy_all
+    end
+  end
 end

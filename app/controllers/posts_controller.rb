@@ -31,10 +31,21 @@ class PostsController < ApplicationController
     end
 
     def destroy
-      
       @post.destroy
       redirect_to posts_path
     end
+
+    def destroy_all
+      
+      @posts = Post.all
+      @posts.destroy_all
+      redirect_to posts_path, notice: "全削除しました。" 
+    end
+
+    # def destroy_all
+    #   Post.destroy_all
+    #   redirect_to posts_path,  notice: "全削除しました。" 
+    # end
   end
 
 
